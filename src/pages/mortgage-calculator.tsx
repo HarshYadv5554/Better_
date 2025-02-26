@@ -3,12 +3,12 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 interface CalculatorForm {
-  homePrice: number;
-  downPayment: number;
-  loanTerm: number;
-  interestRate: number;
-  propertyTax: number;
-  insurance: number;
+  homePrice: string;
+  downPayment: string;
+  loanTerm: string;
+  interestRate: string;
+  propertyTax: string;
+  insurance: string;
 }
 
 const MortgageCalculator: NextPage = () => {
@@ -16,9 +16,9 @@ const MortgageCalculator: NextPage = () => {
   const [monthlyPayment, setMonthlyPayment] = useState<number | null>(null);
 
   const calculateMortgage = (data: CalculatorForm) => {
-    const principal = data.homePrice - data.downPayment;
-    const monthlyRate = data.interestRate / 100 / 12;
-    const numberOfPayments = data.loanTerm * 12;
+    const principal = parseFloat(data.homePrice) - parseFloat(data.downPayment);
+    const monthlyRate = parseFloat(data.interestRate) / 100 / 12;
+    const numberOfPayments = parseFloat(data.loanTerm) * 12;
 
     const monthlyMortgage =
       (principal *
@@ -27,8 +27,8 @@ const MortgageCalculator: NextPage = () => {
 
     const totalMonthlyPayment =
       monthlyMortgage +
-      data.propertyTax / 12 +
-      data.insurance / 12;
+      parseFloat(data.propertyTax) / 12 +
+      parseFloat(data.insurance) / 12;
 
     setMonthlyPayment(totalMonthlyPayment);
   };

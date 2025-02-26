@@ -1,6 +1,30 @@
 import { NextPage } from 'next';
 import Head from 'next/head';
 import { motion } from 'framer-motion';
+import { HomeIcon, ChartBarIcon, CurrencyDollarIcon, UserGroupIcon } from '@heroicons/react/24/outline';
+
+const features = [
+  {
+    name: 'Simple Process',
+    description: 'Our streamlined process makes getting a mortgage easier than ever.',
+    icon: HomeIcon,
+  },
+  {
+    name: 'Better Rates',
+    description: 'Competitive rates and transparent pricing for everyone.',
+    icon: ChartBarIcon,
+  },
+  {
+    name: 'Lower Fees',
+    description: 'No commission, no lender fees, no hassle.',
+    icon: CurrencyDollarIcon,
+  },
+  {
+    name: 'Expert Support',
+    description: '24/7 support from our team of mortgage experts.',
+    icon: UserGroupIcon,
+  },
+];
 
 const AboutUs: NextPage = () => {
   return (

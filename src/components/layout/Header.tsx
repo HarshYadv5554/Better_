@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { FC } from 'react';
 import Link from 'next/link';
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid';
+import { Disclosure } from '@headlessui/react';
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 
 const navigation = [
   { name: 'Home', href: '/' },
@@ -9,7 +10,7 @@ const navigation = [
   { name: 'Get Started', href: '/start' },
 ];
 
-export default function Header() {
+const Header: FC = () => {
   return (
     <Disclosure as="nav" className="bg-white shadow">
       {({ open }) => (
@@ -65,4 +66,6 @@ export default function Header() {
       )}
     </Disclosure>
   );
-}
+};
+
+export default Header; 
