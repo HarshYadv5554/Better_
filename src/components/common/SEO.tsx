@@ -1,4 +1,5 @@
-import React from 'react';
+import Head from 'next/head';
+import { FC } from 'react';
 
 interface SEOProps {
   title: string;
@@ -6,7 +7,7 @@ interface SEOProps {
   canonical?: string;
 }
 
-export default function SEO({ title, description, canonical }: SEOProps) {
+const SEO: FC<SEOProps> = ({ title, description, canonical }) => {
   return (
     <Head>
       <title>{title} | Better Clone</title>
@@ -17,4 +18,6 @@ export default function SEO({ title, description, canonical }: SEOProps) {
       <meta name="viewport" content="width=device-width, initial-scale=1" />
     </Head>
   );
-} 
+};
+
+export default SEO; 
